@@ -37,7 +37,7 @@ public class Image {
         @Column
         private String tags;
         @Column
-        @Lob // para quando salvar algum arquivo
+        @Lob
         private byte[] file;
 
     }
