@@ -16,9 +16,8 @@ public class ImageServicelmpl {
 
         @Override
         @Transactional
-        public Image save(Image image) {
-            return null;
+        public Image save(Image image){
+          return repository.save(image);
         }
     }
-
 }
