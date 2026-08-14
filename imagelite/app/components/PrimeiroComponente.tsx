@@ -1,13 +1,18 @@
 'use client';
-export function PrimeiroComponente(){
-  function clique(){
-    //console.log('Você clicou no botão!');
-    alert('Você clicou no botão')
+interface PrimeiroComponenteProps {
+  mensagem: string;
+  mensagemBotao: string;
+}
+export const PrimeiroComponente = ({ mensagem, mensagemBotao }: PrimeiroComponenteProps) => {
+  const clique = () => {
+    console.log('Você clicou no botão');
+    alert(mensagemBotao);
   }
   return (
     <div>
-        <h1>Primeiro Componente</h1>
-        <button onClick={clique}>Clique aqui</button>
+      <h1>Primeiro Componente</h1>
+      <p>{mensagem}</p>
+      <button onClick={clique}>Clique aqui</button>
     </div>
-  )
+  );
 }
