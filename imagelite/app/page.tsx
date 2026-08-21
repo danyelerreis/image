@@ -1,15 +1,14 @@
-import { PrimeiroComponente } from "./components/PrimeiroComponente";
+import { Template, ImageCard} from './components';
 
-
-export default function Home() {
+export default function Galeria() {
   return (
-    <div>
-      <main>
-        <h1>Bem-vindo ao Next.js!</h1>
-        <PrimeiroComponente
-        mensagem = "Esta é uma mensagem passada como propriedade para o Primeiro Componente."
-        mensagemBotao ="Você clicou no botão!"/>
+    <main>
+      <Template>
+        <h1></h1>
+        <select className="grid grid-cols-3 gap-8">
+          <ImageCard/>
+        </select>
+      </Template>
     </main>
-    </div>
-  )
+  );
 }
