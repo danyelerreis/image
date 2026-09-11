@@ -1,13 +1,14 @@
 'use client'
 import { Template, ImageCard } from '../components';
-import {ImageService ,useImageService } from '../resource/service';
+import { ImageService, useImageService } from '../resource/service';
 import { useState } from 'react';
+import { Image } from '../resource/image';
 
 export default function Galeria() {
 
     const useService = useImageService();
 
-    const [images, setImages] = useState<ImageService[]>([]);
+    const [images, setImages] = useState<Image[]>([]);
 
     async function searchImages() {
         const result = await useService.buscar();
@@ -15,6 +16,21 @@ export default function Galeria() {
         setImages(result);
         console.table(result);
     }
+    /*renderizando a imagem na tela*/
+  function renderImageCard(image: Image ) {
+    return (
+      <ImageCard imageName = {image.name} 
+                 imageUrl={image.url}
+                 imageSize = {`${image.size} MB`}
+                 uploadDate={image.uploadDate} />
+    )
+  }
+
+  function renderImageCards() {
+    //return images.map((image) => renderImageCard(image));
+    return images.map(renderImageCard);
+  }
+
 
     return (
         <Template>
@@ -22,11 +38,12 @@ export default function Galeria() {
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 onClick={searchImages}
             >
-                Mudar Imagem
             </button>
 
             <section className="grid grid-cols-3 gap-4 p-4">
-                <ImageCard imageName={images[0]?.name} />
+            {
+            renderImageCards()
+            }
             </section>
         </Template>
     );
