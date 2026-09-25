@@ -24,8 +24,10 @@ export default function Galeria() {
       <ImageCard key = {image.url}
                 imageName = {image.name} 
                  imageUrl={image.url}
-                 imageSize = {`${image.size} MB`}
-                 uploadDate={image.uploadDate} />
+                 imageSize = {`${image.size} `}
+                 uploadDate={image.uploadDate} 
+                 extension = {image.extension}/>
+                
     )
   }
 
@@ -50,11 +52,11 @@ export default function Galeria() {
                 <option value="JPEG">JPEG</option>
                 <option value="GIF">GIF</option>
               </select>
-              <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" onClick={searchImages}>Search </button>
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={searchImages}>Search </button>
               <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">Add New </button>
             </div>
         </section>
-            <section className="grid grid-cols-3 gap-4 p-4">
+            <section className="grid grid-cols-3 gap-8 p-4">
             {
             renderImageCards()
             }
