@@ -12,7 +12,7 @@ export const PrimeiroComponente = ({ mensagem, mensagemBotao }: PrimeiroComponen
   };
 
   return (
-    <div className="bg-cyan-700/60 border border-cyan-700 rounded-xl p-6 shadow-[0_0_15px_rgb(234, 238, 230)]">
+    <div className="bg--900 border border-white-700 rounded-xl p-6 shadow-[0_0_15px_rgb(234, 238, 230)]">
       <h2 className="text-lg font-semibold text-white-200 mb-1">Primeiro Componente</h2>
       <p className="text-gray-300 mb-4">{mensagem}</p>
       <button
