@@ -1,10 +1,13 @@
 'use client'
-import { Template, ImageCard } from '../components';
+import { Template, ImageCard} from '../components';
 import { ImageService, useImageService } from '../resource/service';
 import { useState } from 'react'; // Corrigida a aspa simples aqui
 import { Image } from '../resource/image';
+import { useRouter } from 'next/navigation';
+import { Button } from '../components/Button';
 
 export default function Galeria() {
+    const router = useRouter();
     const useService = useImageService();
     const [images, setImages] = useState<Image[]>([]);
     const [query, setQuery] = useState<string>('');
@@ -85,10 +88,12 @@ export default function Galeria() {
                                 <span>Search</span>
                             )}
                         </button>
-                        
-                        <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-all">
-                            Add New
-                        </button>
+                        <Button
+                          type="button"
+                          variant="danger"
+                           onClick={() => router.push('/upload')}>
+                               Add New
+                        </Button>
                     </div>
                 </section>
 
