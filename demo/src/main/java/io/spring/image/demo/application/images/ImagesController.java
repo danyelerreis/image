@@ -1,5 +1,7 @@
-package io.spring.image.demo.application;
+package io.spring.image.demo.application.images;
 
+import io.spring.image.demo.application.images.ImageDTO;
+import io.spring.image.demo.application.images.ImageMapper;
 import io.spring.image.demo.domain.entity.Image;
 import io.spring.image.demo.domain.enums.ImageExtension;
 import io.spring.image.demo.domain.service.ImageService;
@@ -19,9 +21,9 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/images")
+@CrossOrigin("*")
 @Slf4j
 @RequiredArgsConstructor
-@CrossOrigin("*")
 public class ImagesController {
 
     private final ImageService service;
@@ -61,8 +63,7 @@ public class ImagesController {
     @GetMapping
     public ResponseEntity<List<ImageDTO>>search(
         @RequestParam(value = "extension", required = false, defaultValue = "")String extension,
-                @RequestParam(value = "query", required = false)String query) throws InterruptedException{
-        Thread.sleep(3000L);
+                @RequestParam(value = "query", required = false)String query) {
         //var result = service.search(ImageExtension.valueOf(extension), query);
         var result = service.search(ImageExtension.ofName(extension), query);
 
