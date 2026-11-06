@@ -1,4 +1,6 @@
 package io.spring.image.demo.application.users;
+import io.spring.image.demo.application.jwt.JwtService;
+import io.spring.image.demo.domain.AcessToken;
 import io.spring.image.demo.domain.entity.User;
 import io.spring.image.demo.domain.exception.DuplicatedTupleException;
 import io.spring.image.demo.domain.service.UserService;
@@ -32,5 +34,22 @@ public class UserServiceImpl implements UserService {
         } // alteração na senha...
         encodePassword(user);
         return userRepository.save(user);
+    }
+    @Override
+    public AcessToken autenticate(String email, String password){
+        var user = getByEmail(email);
+        if (user == null){
+            return null;
+        }
+        boolean matches = passwordEncoder.matches(password, user.getPassword());
+        if(matches){
+            return jwtService.generateToken(user);
+        }
+        return null;
+    }
+    private void encodePassword (User user){
+        String rawPassword = user.getPassword();
+        String encodePassword = passwordEncoder.encode(rawPassword);
+        user.setPassword(encodePassword);
     }
 }
