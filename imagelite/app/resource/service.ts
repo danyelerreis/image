@@ -21,10 +21,10 @@ async enviar(file: File, name: string, tags: string[]): Promise<void> {
 
   if (!response.ok) {
     throw new Error(
-      `Falha ao enviar imagem: ${response.status} ${response.statusText}`,
-    );
+      `Falha ao enviar imagem: ${response.status} ${response.statusText}`,);
   }
-}
-}
+  return response.json();
+    }
+  }
 // React Hook
 export const useImageService = () => new ImageService();

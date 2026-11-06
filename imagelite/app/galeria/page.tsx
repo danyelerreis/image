@@ -1,5 +1,5 @@
 'use client'
-import { Template, ImageCard} from '../components';
+import { Template, ImageCard ,} from '../components';
 import { ImageService, useImageService } from '../resource/service';
 import { useState } from 'react'; // Corrigida a aspa simples aqui
 import { Image } from '../resource/image';
