@@ -73,7 +73,7 @@ export default function UploadPage() {
           ref={formRef}
           className="flex flex-col gap-4"
           onSubmit={handleSubmit}
-        >
+        > 
           <Input
             label="Nome da imagem"
             value={name}

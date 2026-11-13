@@ -25,7 +25,7 @@ export default function Login() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-cyan-950to-cyan-950 px-4 py-10">
+    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-800 via-black to-cyan-950 px-4 py-10">
 
       <div className="w-full max-w-md rounded-3xl bg-gray p-8 shadow-2xl">
 
@@ -55,7 +55,7 @@ export default function Login() {
               value={nome}
               onChange={(e) => setNome(e.target.value)}
               required
-              className="w-full rounded-xl border border-cyan-950 px-4 py-3 text-gray-100 outline-none transition focus:border-cyan-950 focus:ring-2 focus:ring-cyan-100"
+              className="w-full rounded-xl border border-cyan-950 px-4 py-3 text-gray-100 outline-none transition focus:border-cyan-950 focus:ring-2 focus:ring-cyan-950"
             />
           </div>
 
@@ -69,7 +69,7 @@ export default function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full rounded-xl border border-cyan-950 px-4 py-3 text-gray-100 outline-none transition focus:border-cyan-950 focus:ring-2 focus:ring-cyan-100"
+              className="w-full rounded-xl border border-cyan-950 px-4 py-3 text-gray-100 outline-none transition focus:border-cyan-950 focus:ring-2 focus:ring-cyan-950"
             />
           </div>
 
